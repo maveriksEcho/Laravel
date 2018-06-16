@@ -30,9 +30,6 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ url('/') }}" class="nav-link">Welcome Page</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('home')}}" class="nav-link">Home page</a>
       </li>
     </ul>
@@ -54,8 +51,8 @@
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-comments-o"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+          <i class="fa fa-envelope"></i>
+        {{--  <span class="badge badge-danger navbar-badge">3</span>--}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
@@ -112,8 +109,8 @@ Nora Silvester
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-bell-o"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i class="fa fa-bell"></i>
+          {{--<span class="badge badge-warning navbar-badge">15</span>--}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-header">15 Notifications</span>
@@ -138,7 +135,7 @@ Nora Silvester
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-            class="fa fa-th-large"></i></a>
+            class="fa fa-cogs"></i></a>
       </li>
     </ul>
   </nav>
@@ -198,7 +195,7 @@ Nora Silvester
 
                     <li class="nav-item">
                         <a href="{{route('admin.dashboard')}}" class="nav-link {{ Request::path() == 'admin' ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-dashboard"></i>
+                            <i class="nav-icon fa fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -212,7 +209,7 @@ Nora Silvester
 
                     <li class="nav-item">
                         <a href="{{route('admin.post.index')}}" class="nav-link {{ Request::path() == 'admin/post' ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-sticky-note-o"></i>
+                            <i class="nav-icon fa fa-sticky-note"></i>
                             <p>Post</p>
                         </a>
                     </li>
@@ -226,7 +223,7 @@ Nora Silvester
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-comments-o"></i>
+                            <i class="nav-icon fa fa-comments"></i>
                             <p>Comments
                             <span class="badge badge-info right">0</span></p>
                         </a>

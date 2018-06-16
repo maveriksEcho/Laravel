@@ -21,6 +21,8 @@
                 {{-- Form include --}}
                 @include('admin.categories.partials.form')
 
+                <input type="hidden" name="modified_by" value="{{Auth::id()}}">
+
             </form>
 
         </div>

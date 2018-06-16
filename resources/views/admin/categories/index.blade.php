@@ -15,7 +15,7 @@
     <div class="container">
     <hr>
 
-    <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o"></i> Create category</a><br><br>
+    <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square"></i> Create category</a><br><br>
     <table class="table table-striped">
         <thead>
         <th>Title</th>
@@ -33,7 +33,7 @@
                         {{ csrf_field() }}
                         <a class="btn btn-default" href="{{route('admin.category.show', $category)}}"><i class="fa fa-eye"></i></a>
                         <a class="btn btn-default" href="{{route('admin.category.edit', $category)}}"><i class="fa fa-edit"></i></a>
-                        <button type="submit" class="btn"><i class="fa fa-trash-o"></i></button>
+                        <button type="submit" class="btn"><i class="fa fa-trash"></i></button>
                     </form>
 
                 </td>

@@ -1,3 +1,6 @@
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
 RewriteRule ^$ public/ [L]
 RewriteRule ((?s).*) public/$1 [L]

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.post.index', [
+            'posts' => Post::orderBy('created_at', 'desc')->paginate(10)
+        ]);
     }
 
     /**
@@ -25,7 +28,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post.create', [
+            'post'    => [],
+            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter'  => ''
+        ]);
     }
 
     /**
@@ -36,7 +43,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create($request->all());
+
+        // Categories
+        if($request->input('categories')) :
+            $post->categories()->attach($request->input('categories'));
+        endif;
+
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -58,7 +72,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.post.edit', [
+            'post'    => $post,
+            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter'  => ''
+        ]);
     }
 
     /**
@@ -70,7 +88,15 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        // Categories
+        $post->categories()->detach();
+        if($request->input('categories')) :
+            $post->categories()->attach($request->input('categories'));
+        endif;
+
+        return redirect()->route('admin.post.index');
     }
 
     /**
@@ -81,6 +107,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->categories()->detach();
+        $post->delete();
+
+        return redirect()->route('admin.post.index');
     }
 }

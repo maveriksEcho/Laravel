@@ -1,6 +1,10 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')
 
-@section('content')
+@section('content')--}}
+
+
+@guest
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -66,4 +70,23 @@
         </div>
     </div>
 </div>
-@endsection
+@else
+
+        <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
+
+
+
+            <a class="nav-link" href="#" role="button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+
+@endguest
+
+{{--@endsection--}}
