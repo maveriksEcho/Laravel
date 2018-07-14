@@ -112,4 +112,11 @@ class PostController extends Controller
 
         return redirect()->route('admin.post.index');
     }
+    public function change($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->published = !$post->published;
+        $post->save();
+        return $post;
+    }
 }

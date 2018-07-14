@@ -12,10 +12,10 @@
 
     <!-- Styles -->
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
     <!-- Fonts -->
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
@@ -201,7 +201,7 @@ Nora Silvester
                     </li>
 
                      <li class="nav-item">
-                <a href="{{route('admin.category.index')}}" class="nav-link {{ Request::path() == 'admin/category' ? 'active' : '' }}">
+                <a href="{{route('admin.dashboard.categories')}}" class="nav-link {{ Request::path() == 'admin/category' ? 'active' : '' }}">
                   <i class="nav-icon fa fa-list"></i>
                   <p>Category</p>
                 </a>
@@ -284,8 +284,13 @@ Anything you want
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+<script>
+    window.Laravel = <?php echo json_encode([
+        'csrfToken' => csrf_token(),
+    ]); ?>
+</script>
 
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/admin.js')}}"></script>
 
 </body>
 </html>

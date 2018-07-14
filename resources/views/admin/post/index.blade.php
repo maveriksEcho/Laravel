@@ -11,11 +11,11 @@
     @endcomponent
     <!-- /.content-header -->
  <!-- Main content -->
-    <div class="container">
+    <div class="container" id="app">
     <hr>
 
     <a href="{{route('admin.post.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square"></i> Create post</a><br><br>
-    <table class="table table-striped">
+    <table class="table table-striped text-center">
         <thead>
         <th>Title</th>
         <th>Published</th>
@@ -25,7 +25,8 @@
         @forelse ($posts as $post)
             <tr>
                 <td>{{$post->title}}</td>
-                <td>@if ($post->published == 0) Draft @else Published @endif </td>
+                <td><post-button-component :p="{{$post}}"></post-button-component> </td>
+               {{-- <td>@if ($post->published == 0) Draft @else Published @endif </td>--}}
                 <td class="text-right">
                     <form onsubmit="if(confirm('Delete?')) {return true} else {return false}" action="{{route('admin.post.destroy', $post)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
@@ -53,5 +54,6 @@
         </tfoot>
     </table>
     </div>
+
 
 @endsection

@@ -28,12 +28,14 @@
 
                 <div class="home-slider-clearfix "></div>
 
+
                 <!-- Headline -->
-                <div id="headline">
-                    <h1>RESPONSIVE, FREE AND SLEEK</h1>
-                    <p>Zeni is a FREE Responsive HTML 5 Template.</p>
-                    <p>Visit my <a href="http://www.luiszuno.com">site</a> for more freebies</p>
-                    <em id="corner"></em>
+                <div id="headline" style="padding: 20px">
+                    <div id="app">
+
+                        <socket-chat-component></socket-chat-component>
+
+                    </div>
                 </div>
                 <!-- ENDS headline -->
 

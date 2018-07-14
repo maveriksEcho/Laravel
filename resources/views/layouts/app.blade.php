@@ -12,8 +12,10 @@
     <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/front.css')}}">
+
 
 </head>
 <body>
@@ -135,7 +137,11 @@
     </div>
 </footer>
 <!-- Scripts -->
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 <script src="{{ asset('js/front.js') }}"></script>
+
 
 </body>
 

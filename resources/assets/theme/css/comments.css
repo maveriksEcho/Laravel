@@ -229,6 +229,7 @@
 }
 
 #contactForm input,
+#contactForm button,
 #contactForm textarea,
 #commentform input,
 #commentform textarea{
@@ -244,6 +245,7 @@
 }
 
 #contactForm input:focus,
+#contactForm button:focus,
 #contactForm textarea:focus,
 #commentform input:focus,
 #commentform textarea:focus{
@@ -271,6 +273,7 @@
 
 
 #contactForm input[type="submit"],
+#contactForm button,
 #commentform input[type="submit"],
 #contactForm input[type="button"]{
 	margin: 21px 0px;
@@ -296,6 +299,7 @@
 }
 
 #contactForm input[type="submit"]:hover,
+#contactForm button,
 #commentform input[type="submit"]:hover,
 #contactForm input[type="button"]:hover{
 	background: #ea4c88;
@@ -348,4 +352,116 @@
 	margin-bottom: 40px;
 	background: rgba(0, 0, 0, 0.1);
 	color: #444;
+}
+
+/*CHAT*/
+
+
+#chat{
+	margin-bottom: 18px;
+	color: #484848;
+}
+
+
+
+#chat h4{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#chat input,
+#chat button,
+#chat textarea
+{
+	padding: 10px 15px;
+	background: #eaeaea;
+	color: #484848;
+	border: 1px  solid #ccc;
+	font-size: 13px;
+	font-family: Helvetica, Arial;
+	line-height: 1.5em;
+
+	overflow: auto;
+}
+
+#chat input:focus,
+#chat button:focus,
+#chat textarea:focus
+{
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 3px rgba(234,76,136,.4);
+	-moz-box-shadow: 0px 0px 3px rgba(234,76,136,.4);
+	-o-box-shadow: 0px 0px 3px rgba(234,76,136,.4);
+	box-shadow: 0px 0px 3px rgba(234,76,136,.4);
+}
+
+#chat input[type="text"]
+{
+	overflow: auto;
+	width: 90%;
+	margin-bottom: 20px;
+
+	overflow: hidden;
+}
+
+#chat  textarea
+{
+	width: 90%;
+	height: 230px;
+}
+
+
+#chat input[type="submit"],
+#chat button,
+#chat input[type="button"]{
+	margin: 21px 0px;
+
+	width: auto;
+	color: #444;
+	font-size: 11px;
+	background: #eaeaea;
+	padding: 3px 10px;
+	border: 1px solid #ccc;
+
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	-o-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+
+	cursor: pointer;
+}
+
+#chat input[type="submit"]:hover,
+#chat button,
+#chat input[type="button"]:hover{
+	background: #ea4c88;
+	color: #fff;
+}
+
+#chat label
+{
+	padding-left: 7px;
+	color: #484848;
+}
+
+#chat{
+	margin:0px;
+}
+
+#chat textarea{
+	margin-bottom: 20px;
+}
+
+#chat input{
+	margin: 0px;
+}
+
+#chat #submit{
+	margin: 0px;
+	float:right;
 }

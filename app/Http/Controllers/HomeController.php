@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Events\Message;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -60,5 +61,10 @@ class HomeController extends Controller
     public function project()
     {
         return view('project');
+    }
+
+    public function chat(Request $request)
+    {
+        event(new Message($request->input('message')));
     }
 }

@@ -15,10 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index', [
-            'categories' => Category::paginate(10)
-        ]);
+        return Category::all();
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,11 +26,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create', [
+      /*  return view('admin.categories.create', [
             'category'   => [],
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             'delimiter'  => ''
-        ]);
+        ]);*/
 
     }
 
@@ -43,8 +42,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return redirect()->route('admin.category.index');
+        $category = Category::create($request->all());
+
+        return $category;
     }
 
     /**
@@ -55,11 +55,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('admin.categories.show', [
+      /*  return view('admin.categories.show', [
             'category'   => $category,
             'categories' => Category::with('children')->get(),
             'delimiter'  => ''
-        ]);
+        ]);*/
     }
 
     /**
@@ -70,11 +70,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', [
+        /*return view('admin.categories.edit', [
             'category'   => $category,
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             'delimiter'  => ''
-        ]);
+        ]);*/
     }
 
     /**
@@ -84,11 +84,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update($id, Request $request)
     {
+        $category = Category::findOrFail($id);
         $category->update($request->all());
 
-        return redirect()->route('admin.category.index');
+        return $category;
     }
 
     /**
@@ -97,9 +98,18 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        $category = Category::findOrFail($id);
         $category->delete();
-        return redirect()->route('admin.category.index');
+        return '';
+    }
+
+    public function change($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->published = !$category->published;
+        $category->save();
+        return $category;
     }
 }

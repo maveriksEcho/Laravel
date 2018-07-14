@@ -19,4 +19,9 @@ class DashboardController extends Controller
             'user'     => DB::table('users')->count(),
         ]);
     }
+
+    public function categories()
+    {
+       return view('admin.categories.index');
+    }
 }

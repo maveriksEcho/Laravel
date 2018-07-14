@@ -18,6 +18,8 @@ Route::get('/work', 'HomeController@work')->name('work');
 Route::get('/post', 'HomeController@post')->name('post');
 Route::get('/project', 'HomeController@project')->name('project');
 
+Route::get('/chat', 'HomeController@chat');
+
 
 Auth::routes();
 
@@ -25,6 +27,10 @@ Auth::routes();
 
 Route::group(['prefix'=>'admin', 'namespace'=>'admin', 'middleware'=>'auth'], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+    Route::get('/categories', 'DashboardController@categories')->name('admin.dashboard.categories');
     Route::resource('/category', 'CategoryController', ['as'=>'admin']);
     Route::resource('/post', 'PostController', ['as'=>'admin']);
+    Route::post('/category/{id}', 'CategoryController@change');
+    Route::post('/post/{id}', 'PostController@change');
 });
+

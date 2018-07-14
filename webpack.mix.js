@@ -11,11 +11,17 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/assets/js/admin.js', 'public/js')
+   .sass('resources/assets/sass/admin.scss', 'public/css')
         .options({
             processCssUrls: false
         });
+
+mix.js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    });
 
     /*  THEME  */
 
@@ -52,15 +58,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
             'resources/assets/theme/css/lessframework.css',
             'resources/assets/theme/css/skin.css'
         ], 'public/css/front.css');
-
-
-
-
-
-
-
-
-
 
 
 
