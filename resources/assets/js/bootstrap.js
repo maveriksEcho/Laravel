@@ -2,9 +2,6 @@
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
-
-
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -49,13 +46,15 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-/* import Echo from 'laravel-echo'
-    window.io = require('socket.io-client');
 
- window.Echo = new Echo({
+import Echo from "laravel-echo"
+
+window.io = require('socket.io-client');
+
+window.Echo = new Echo({
     broadcaster: 'socket.io',
-     host: windows.location.hostname + ':6001'
- });*/
+    host: window.location.hostname + ':6001'
+});
 
 
 

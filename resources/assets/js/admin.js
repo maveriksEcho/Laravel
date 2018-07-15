@@ -13,6 +13,14 @@ import VueRouter from 'vue-router';
 
 window.Vue.use(VueRouter);
 
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,6 +46,7 @@ const routes = [
 ]
 
 Vue.component('post-button-component', require('./components/post_button.vue'));
+
 
 const router = new VueRouter({ routes })
 

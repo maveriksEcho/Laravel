@@ -30,13 +30,13 @@
 
 
                 <!-- Headline -->
-                <div id="headline" style="padding: 20px">
+
                     <div id="app">
-
-                        <socket-chat-component></socket-chat-component>
-
+                        @if (Auth::check())
+                        <socket-chat-component :user="{{Auth::user()}}"></socket-chat-component>
+                        @endif
                     </div>
-                </div>
+
                 <!-- ENDS headline -->
 
 

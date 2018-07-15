@@ -16,9 +16,8 @@
             <label for="parent_id">Parent category</label>
             <select class="form-control" name="parent_id" v-model="category.parent_id">
                 <option selected value="0">-- without parent category --</option>
-                <option  v-for="cat in categories" v-bind:value="cat.id" v-if="cat.parent_id == 0"  >{{cat.title}} </option>
-                <option  :value="cat.id" v-else  >-{{cat.title}}</option>
-
+                <option  v-for="cat in categories" :value="cat.id" v-if="cat.parent_id == 0">{{cat.title}}</option>
+                <option  v-else :value="cat.id"><span>-</span>{{cat.title}}</option>
             </select>
 
             <hr />

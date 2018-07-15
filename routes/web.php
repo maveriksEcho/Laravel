@@ -18,7 +18,7 @@ Route::get('/work', 'HomeController@work')->name('work');
 Route::get('/post', 'HomeController@post')->name('post');
 Route::get('/project', 'HomeController@project')->name('project');
 
-Route::get('/chat', 'HomeController@chat');
+Route::post('/chat', 'HomeController@chat');
 
 
 Auth::routes();
