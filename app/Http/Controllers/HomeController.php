@@ -32,9 +32,9 @@ class HomeController extends Controller
     public function blog()
     {
         return view('blog',[
-                    'categories' => Category::all(),
-                    'posts' => Post::simplepaginate(3),
-
+                    'categories' => Category::with('children')->where('parent_id', '0')->get(),
+                    'posts' => Post::with(['categories', 'users', 'comments', 'tags'])->simplepaginate(3),
+                    'delimiter'  => ' '
         ]);
     }
 
@@ -53,9 +53,13 @@ class HomeController extends Controller
         return view('work');
     }
 
-    public function post()
+    public function post($slug)
     {
-        return view('post');
+        return view('post', [
+            'categories' => Category::with('children')->where('parent_id', '0')->get(),
+            'post' => Post::with(['categories', 'users', 'comments', 'tags'])->where('slug', $slug)->get(),
+            'delimiter'  => ' '
+        ]);
     }
 
     public function project()

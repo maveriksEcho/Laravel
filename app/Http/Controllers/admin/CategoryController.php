@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::with('children')->get();
+        return array(
+                'categories' => Category::with('children')->get(),
+                'user' => Auth::id()
+        );
     }
 
 

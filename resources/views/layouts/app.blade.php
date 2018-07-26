@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="{{asset('css/front.css')}}">
 
-
 </head>
 <body>
 <header class="clearfix">
@@ -41,7 +40,7 @@
 
     <div class="wrapper clearfix">
 
-        <a href="{{ url('/') }}" id="logo"><img  style="width: 100px " src="img/logo.png" alt="blog_logo"></a>
+        <a href="{{ url('/') }}" id="logo"><img  style="width: 100px " src="{{asset('img/logo.png')}}" alt="blog_logo"></a>
         <nav>
             <ul id="nav" class="sf-menu">
                 <li class="{{ Request::path() == '/' ? 'current-menu-item' : '' }}"><a href="{{ url('/') }}">HOME</a></li>

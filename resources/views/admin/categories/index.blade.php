@@ -12,7 +12,7 @@
     <!-- /.content-header -->
 
         <!-- Main content -->
-    <div class="container">
+    <div class="container-fluid">
     <hr>
         <div id="app">
 

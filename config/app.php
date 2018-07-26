@@ -164,7 +164,7 @@ return [
          * My Service Providers...
          */
 
-
+         Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

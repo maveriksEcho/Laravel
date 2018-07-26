@@ -184,4 +184,8 @@
     </div>
     <!-- ENDS MAIN -->
 
+    <script>
+           $("#message").scrollTop($("#message")[0].scrollHeight);
+    </script>
+
 @endsection

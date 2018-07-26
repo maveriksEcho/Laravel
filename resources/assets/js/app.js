@@ -7,7 +7,14 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+
+window.moment = require('moment');
+
+import VueChatScroll from 'vue-chat-scroll';
+
+window.Vue.use(VueChatScroll)
 
 
 /**

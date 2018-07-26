@@ -5,13 +5,12 @@
 
         <form v-on:submit.prevent = "updateForm(category.id)">
             <label for="published">Status</label>
-            <select class="form-control" name="published" v-model="category.published">
-                <option value="0" v-bind:selected="category.published == 0" >Draft</option>
-                <option value="1" v-bind:selected="category.published == 1" >Published</option>
-            </select>
 
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" placeholder="Category title" v-model="category.title"required>
+
+            <label for="title">Slug</label>
+            <input type="text" class="form-control" name="slug" placeholder="Category slug" v-model="category.slug" readonly="">
 
            <label for="parent_id">Parent category</label>
             <select class="form-control" name="parent_id" v-model="category.parent_id">
@@ -25,6 +24,7 @@
                          v-else  >-{{cat.title}}</option>
 
             </select>
+            <input type="hidden" name="modified_by" v-model="user">
 
             <hr />
             <button type="submit" class="btn btn-primary">Save</button>
@@ -39,9 +39,10 @@
         data: function () {
             return {
                 categories:[],
+                user: '',
                 category: {
                     title: '',
-                    published: '',
+                    slug: '',
                     parent_id: '',
                 }
             }
@@ -49,6 +50,7 @@
         created: function () {
             this.categories = this.$route.params.arr;
             this.category = this.$route.params.id
+            this.user = this.$route.params.user
         },
         methods: {
             updateForm: function (id) {

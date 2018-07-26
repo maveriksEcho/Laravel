@@ -7,6 +7,12 @@
 
 require('./bootstrap');
 
+//ckeditor
+$ (document).ready(function(){
+ CKEDITOR.replace( 'description_short' );
+ CKEDITOR.replace( 'description' );
+});
+
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
@@ -16,10 +22,20 @@ window.Vue.use(VueRouter);
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(BootstrapVue);
+
+window.Vue.use(BootstrapVue);
+
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
+import Treeselect from '@riophae/vue-treeselect'
+
+window.Vue.use(Treeselect);
+
+import '@riophae/vue-treeselect/dist/vue-treeselect.css'
+
 
 
 /**
@@ -32,7 +48,7 @@ import categoryIndex from './components/categoryIndex.vue';
 import categoryCreate from './components/categoryCreate.vue';
 import categoryEdit from './components/categoryEdit.vue';
 
-
+window.tablesorter = require('tablesorter');
 
 const routes = [
     {

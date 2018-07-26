@@ -215,14 +215,14 @@ Nora Silvester
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.tag.index')}}" class="nav-link">
                             <i class="nav-icon fa fa-tags"></i>
                             <p>Tags</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('admin.comment.index')}}" class="nav-link">
                             <i class="nav-icon fa fa-comments"></i>
                             <p>Comments
                             <span class="badge badge-info right">0</span></p>
@@ -278,7 +278,7 @@ Nora Silvester
 Anything you want
 </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017-2018 <a href="#">maveriks.nikstep.com.ua</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017-2018 <a href="#" id="link">maveriks.nikstep.com.ua</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -290,7 +290,15 @@ Anything you want
     ]); ?>
 </script>
 
+<script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+
 <script src="{{asset('js/admin.js')}}"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#myTable").tablesorter();
+    } );
+</script>
 
 </body>
 </html>

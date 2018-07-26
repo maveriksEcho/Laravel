@@ -6,6 +6,7 @@ use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -16,8 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index', [
-            'posts' => Post::orderBy('created_at', 'desc')->paginate(10)
+        return view('admin.posts.index', [
+           'posts' => Post::with('categories')->orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 
@@ -28,7 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create', [
+        return view('admin.posts.create', [
             'post'    => [],
             'categories' => Category::with('children')->where('parent_id', 0)->get(),
             'delimiter'  => ''
@@ -72,7 +73,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit', [
+        return view('admin.posts.edit', [
             'post'    => $post,
             'categories' => Category::with('children')->where('parent_id', 0)->get(),
             'delimiter'  => ''

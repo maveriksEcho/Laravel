@@ -4,14 +4,12 @@
         <hr>
 
         <form v-on:submit.prevent = "saveForm">
-            <label for="published">Status</label>
-            <select class="form-control" name="published" v-model="category.published">
-                <option selected  value="0">Draft</option>
-                <option value="1">Published</option>
-            </select>
 
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" placeholder="Category title" v-model="category.title" required>
+
+            <label for="title">Slug</label>
+            <input type="text" class="form-control" name="slug" placeholder="Category slug" v-model="category.slug" readonly="">
 
             <label for="parent_id">Parent category</label>
             <select class="form-control" name="parent_id" v-model="category.parent_id">
@@ -20,6 +18,7 @@
                 <option  v-else :value="cat.id"><span>-</span>{{cat.title}}</option>
             </select>
 
+            <input type="hidden" name="created_by" v-model="user">
             <hr />
             <button type="submit" class="btn btn-primary">Save</button>
             <router-link to="/" class="btn btn-primary">Back</router-link>
@@ -33,15 +32,18 @@
        data: function () {
             return {
                 categories:[],
+                user: '',
                 category: {
                     title: '',
-                    published: '',
+                    id: '',
+                    slug: '',
                     parent_id: '',
-                }
+                },
             }
         },
         created: function () {
-           this.categories = this.$route.params.arr
+            this.categories = this.$route.params.arr;
+            this.user = this.$route.params.user;
         },
         methods: {
             saveForm: function () {
