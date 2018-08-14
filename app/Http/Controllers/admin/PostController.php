@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Post;
+use App\Tag;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,6 +33,7 @@ class PostController extends Controller
         return view('admin.posts.create', [
             'post'    => [],
             'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'tags' => Tag::all(),
             'delimiter'  => ''
         ]);
     }
@@ -49,6 +51,10 @@ class PostController extends Controller
         // Categories
         if($request->input('categories')) :
             $post->categories()->attach($request->input('categories'));
+        endif;
+        // Tags
+        if($request->input('tags')) :
+            $post->tags()->attach($request->input('tags'));
         endif;
 
         return redirect()->route('admin.post.index');
@@ -76,6 +82,7 @@ class PostController extends Controller
         return view('admin.posts.edit', [
             'post'    => $post,
             'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'tags' => Tag::all(),
             'delimiter'  => ''
         ]);
     }
@@ -97,6 +104,12 @@ class PostController extends Controller
             $post->categories()->attach($request->input('categories'));
         endif;
 
+        // tags
+        $post->tags()->detach();
+        if($request->input('tags')) :
+            $post->tags()->attach($request->input('tags'));
+        endif;
+
         return redirect()->route('admin.post.index');
     }
 
@@ -109,6 +122,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->categories()->detach();
+        $post->tags()->detach();
         $post->delete();
 
         return redirect()->route('admin.post.index');

@@ -36,6 +36,12 @@ window.Vue.use(Treeselect);
 
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 
+import Toastr from 'vue-toastr';
+
+Vue.use(Toastr);
+
+
+
 
 
 /**
@@ -50,6 +56,9 @@ import categoryEdit from './components/categoryEdit.vue';
 
 window.tablesorter = require('tablesorter');
 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
 const routes = [
     {
         path: '/',
@@ -62,6 +71,7 @@ const routes = [
 ]
 
 Vue.component('post-button-component', require('./components/post_button.vue'));
+Vue.component('image-uploader-component', require('./components/ImageUploader.vue'));
 
 
 const router = new VueRouter({ routes })

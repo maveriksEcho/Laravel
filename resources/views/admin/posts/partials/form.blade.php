@@ -1,14 +1,23 @@
 <label for="">Status</label>
 
+<image-uploader-component></image-uploader-component><br>
+
 <label for="">Title</label>
 <input type="text" class="form-control" name="title" placeholder="Post title" value="{{$post->title or ""}}" required>
 
 <label for="">Slug</label>
 <input type="text" class="form-control" name="slug" placeholder="Autogenerete post slug" value="{{$post->slug or ""}}" readonly="">
 
-<label for="">Parent category</label>
+<label for="">Category</label>
 <select class="form-control" name="categories[]" multiple="">
     @include('admin.posts.partials.categories', ['categories' => $categories])
+</select>
+
+<label for="">Tags</label>
+<select class="form-control" name="tags[]" multiple="">
+    @foreach ($tags as $tag)
+    <option value="{{$tag->id}}"  >{{$tag->title}}</option>
+    @endforeach
 </select>
 
 <label for="">Short description</label>
