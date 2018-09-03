@@ -25,7 +25,7 @@
                                 <p>Categoty</p>
                             </div>
 
-                            <a href="{{route('admin.category.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.dashboard.categories')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -46,12 +46,12 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>0</h3>
+                                <h3>{{$comment}}</h3>
 
                                 <p>Comments</p>
                             </div>
 
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.comment.index')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->

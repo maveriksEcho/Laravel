@@ -1,6 +1,4 @@
-<label for="">Status</label>
-
-<image-uploader-component></image-uploader-component><br>
+<label for="">Status</label><br>
 
 <label for="">Title</label>
 <input type="text" class="form-control" name="title" placeholder="Post title" value="{{$post->title or ""}}" required>

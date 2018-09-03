@@ -36,9 +36,9 @@ window.Vue.use(Treeselect);
 
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 
-import Toastr from 'vue-toastr';
+import toastr from 'vue-toastr';
 
-Vue.use(Toastr);
+Vue.use(toastr);
 
 
 

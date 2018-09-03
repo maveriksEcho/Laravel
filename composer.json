@@ -12,8 +12,9 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "~5.0",
         "predis/predis": "^1.1",
-        "sleeping-owl/with-join": "1.x",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "tamayo/laravel-scout-elastic": "^3.0",
+        "unisharp/laravel-ckeditor": "^4.7",
+        "yab/laravel-scout-mysql-driver": "^2.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

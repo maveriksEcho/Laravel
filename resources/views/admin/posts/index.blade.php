@@ -24,6 +24,17 @@
  <!-- Main content -->
     <div class="container-fluid" id="app">
     <hr>
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3" style="float: left" action="{{route('admin.post.index')}}" method="get">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
 
     <a href="{{route('admin.post.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square"></i> Create post</a><br><br>
     <table class="table table-striped text-center tablesorter" id="myTable">

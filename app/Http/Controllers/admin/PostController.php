@@ -8,19 +8,31 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Image;
+
 
 class PostController extends Controller
+
+
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.posts.index', [
-           'posts' => Post::with('categories')->orderBy('created_at', 'desc')->paginate(10)
-        ]);
+       // dd(Post::search($request->search)->paginate(10));
+
+        if ($request->search)
+        {
+                $posts = Post::search($request->search)->orderBy('created_at', 'desc')->paginate(10);
+        }else
+            {
+                $posts = Post::with('categories')->orderBy('created_at', 'desc')->paginate(10);
+            }
+
+        return view('admin.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -127,6 +139,11 @@ class PostController extends Controller
 
         return redirect()->route('admin.post.index');
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function change($id)
     {
         $post = Post::findOrFail($id);
@@ -134,4 +151,5 @@ class PostController extends Controller
         $post->save();
         return $post;
     }
+
 }

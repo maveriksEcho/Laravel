@@ -19,6 +19,7 @@ Route::get('/post/{slug}', 'HomeController@post')->name('post');
 Route::get('/project', 'HomeController@project')->name('project');
 
 Route::post('/chat', 'HomeController@chat');
+Route::post('/comment', 'HomeController@comment')->name('comment');
 
 
 Auth::routes();
@@ -34,5 +35,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'admin', 'middleware'=>'auth'], fu
     Route::resource('/comment', 'CommentController', ['as'=>'admin']);
     Route::post('/category/{id}', 'CategoryController@change');
     Route::post('/post/{id}', 'PostController@change');
+    Route::post('/post/images-upload', 'PostController@upload');
 });
 

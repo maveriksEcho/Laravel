@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Events\Message;
 use App\Post;
 use Illuminate\Http\Request;
@@ -70,5 +71,11 @@ class HomeController extends Controller
     public function chat(Request $request)
     {
         event(new Message($request->input('message')));
+    }
+
+    public function comment(Request $request)
+    {
+        $comment = Comment::create($request->except('submit'));
+        return redirect()->back();
     }
 }

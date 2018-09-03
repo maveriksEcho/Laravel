@@ -60,10 +60,10 @@
 
                     .then(function (resp) {
                         app.$router.push({path: '/'});
+                        app.$toastr.s('Your category edit');
                     })
                     .catch(function (resp) {
-                        console.log(resp);
-                        alert("Could not edit your category");
+                        app.$toastr.e('Could not edit your category');
                     });
             }
         }

@@ -53,10 +53,10 @@
 
                     .then(function (resp) {
                         app.$router.push({path: '/'});
+                        app.$toastr.s('Your category create');
                     })
                     .catch(function (resp) {
-                        console.log(resp);
-                        alert("Could not create your category");
+                        app.$toastr.e('Could not create your category');
                     });
             }
         }

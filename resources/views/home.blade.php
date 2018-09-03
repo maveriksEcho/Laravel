@@ -33,7 +33,7 @@
 
                     <div id="app">
                         @if (Auth::check())
-                        <socket-chat-component :user="{{Auth::user()}}"></socket-chat-component>
+                       {{-- <socket-chat-component :user="{{Auth::user()}}"></socket-chat-component>--}}
                         @endif
                     </div>
 

@@ -94,7 +94,7 @@
                 this.files.forEach(file => {
                     formData.append('images[]', file, file.name);
                 });
-                axios.post('/images-upload', formData)
+                axios.post('/admin/post/images-upload', formData)
                     .then(response => {
                         this.$toastr.s('All images uplaoded successfully');
                         this.images = [];

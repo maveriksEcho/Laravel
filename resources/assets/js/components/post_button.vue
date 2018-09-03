@@ -18,14 +18,19 @@
         },
         methods: {
             change(id, published) {
-
-                var app = this;
                 axios.post('/admin/post/' + id)
-                    .then(function (resp) {
-                        app.post.published = !published;
+                    .then(response => {
+
+                        this.post.published = !published;
+                        if( this.post.published == true){
+                            this.$toastr.s('Post published');
+                        }else{
+                            this.$toastr.s('Post draft');
+                        }
+
                     })
-                    .catch(function (resp) {
-                        alert("Could not change publish");
+                    .catch(response => {
+                        this.$toastr.e('Could not change publish');
                     });
 
             }
@@ -33,3 +38,6 @@
         }
     }
 </script>
+<style lang="scss">
+    @import '~vue-toastr/src/vue-toastr.scss';
+</style>

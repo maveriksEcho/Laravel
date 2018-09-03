@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use \SleepingOwl\WithJoin\WithJoinTrait;
-
+    use Searchable;
+ 
     public function setSlugAttribute($value) {
         $this->attributes['slug'] = Str::slug( mb_substr($this->title, 0, 40), '-');
     }

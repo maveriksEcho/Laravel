@@ -47,40 +47,43 @@
             }
         },
         created () {
-            var app = this;
+
             axios.get('/admin/category')
-                .then(function (resp) {
-                    app.categories = resp.data.categories;
-                    app.user = resp.data.user;
-                    console.log(resp.data.user);
+                .then(response => {
+                    this.categories = response.data.categories;
+                    this.user = response.data.user;
                 })
-                .catch(function (resp) {
-                    console.log(resp);
-                    alert("Could not load categories");
+                .catch(response => {
+                    this.$toastr.e('Could not load categories');
                 });
         },
         methods: {
             deleteEntry(id, index) {
                 if (confirm("Do you really want to delete it?")) {
-                    var app = this;
+
                     axios.delete('/admin/category/' + id)
-                        .then(function (resp) {
-                            app.categories.splice(index, 1);
+                        .then(response => {
+                            this.categories.splice(index, 1);
+                            this.$toastr.w('Category delete');
                         })
-                        .catch(function (resp) {
-                            alert("Could not delete category");
+                        .catch(response => {
+                            this.$toastr.e('Could not delete category');
                         });
                 }
             },
             change(id, index, published) {
 
-                    var app = this;
                     axios.post('/admin/category/' + id)
-                        .then(function (resp) {
-                          app.categories[index].published = !published;
+                        .then(response => {
+                          this.categories[index].published = !published;
+                            if( this.categories[index].published == true){
+                                this.$toastr.s('Category published');
+                            }else{
+                                this.$toastr.s('Category draft');
+                            }
                         })
-                        .catch(function (resp) {
-                            alert("Could not change publish");
+                        .catch(response => {
+                            this.$toastr.e('Could not change publish');
                         });
 
             }
@@ -88,3 +91,7 @@
         }
     }
 </script>
+
+<style lang="scss">
+    @import '~vue-toastr/src/vue-toastr.scss';
+</style>
