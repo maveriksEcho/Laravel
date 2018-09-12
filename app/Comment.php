@@ -8,7 +8,7 @@ class Comment extends Model
 {
     //
     // Mass assigned
-    protected $guarded = [];
+    protected $fillable = ['content' , 'parent_id' ,'post_id' ,'published' ,'created_by' ,'modified_by'];
 
     public function posts()
     {

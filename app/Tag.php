@@ -13,7 +13,7 @@ class Tag extends Model
     }
 
     // Mass assigned
-    protected $guarded = [];
+    protected $fillable = ['title' , 'slug' , 'description' , 'created_by' , 'modified_by'];
 
     public function posts()
     {

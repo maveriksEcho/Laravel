@@ -27,10 +27,12 @@
         <!-- SEARCH FORM -->
         <form class="form-inline ml-3" style="float: left" action="{{route('admin.post.index')}}" method="get">
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" value="{{session()->get('search')}}" aria-label="Search" name="search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
-                        <i class="fa fa-search"></i>
+                            <i class="fa fa-search"></i>
+                        <button class="btn btn-navbar" type="submit" name="reset" value="reset">
+                            <i class="fa fa-undo"></i>
                     </button>
                 </div>
             </div>

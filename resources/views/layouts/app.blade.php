@@ -40,7 +40,8 @@
 
     <div class="wrapper clearfix">
 
-        <a href="{{ url('/') }}" id="logo"><img  style="width: 100px " src="{{asset('img/logo.png')}}" alt="blog_logo"></a>
+        <a href="{{ url('/') }}" id="logo" style="font-size: 120px; color: #E2E0D7; font-family: 'Yanone Kaffeesatz'; letter-spacing: 10px;  font-style: italic;"><img  style="width: 100px; padding-right: 160px " src="{{asset('img/logo.png')}}" alt="blog_logo"> GURMAN</a>
+
         <nav>
             <ul id="nav" class="sf-menu">
                 <li class="{{ Request::path() == '/' ? 'current-menu-item' : '' }}"><a href="{{ url('/') }}">HOME</a></li>
@@ -73,19 +74,19 @@
                 <div class="widget-block">
                     <h4>Recent posts</h4>
                     <div class="recent-post">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+                        <a href="#" class="thumb"><img src="{{asset('img/dummies/54x54.gif')}}" alt="Post" /></a>
                         <div class="post-head">
                             <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
                         </div>
                     </div>
                     <div class="recent-post">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+                        <a href="#" class="thumb"><img src="{{asset('img/dummies/54x54.gif')}}" alt="Post" /></a>
                         <div class="post-head">
                             <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
                         </div>
                     </div>
                     <div class="recent-post">
-                        <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+                        <a href="#" class="thumb"><img src="{{asset('img/dummies/54x54.gif')}}" alt="Post" /></a>
                         <div class="post-head">
                             <a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
                         </div>
@@ -127,9 +128,9 @@
             <div class="left">Created by <a href="http://www.luiszuno.com" >luiszuno.com</a></div>
             <div class="right">
                 <ul id="social-bar">
-                    <li><a href="http://www.facebook.com/pages/Ansimuz/224538697564461"  title="Become a fan" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>
-                    <li><a href="https://twitter.com/ansimuz" title="Follow my tweets" class="poshytip"><img src="img/social/twitter.png"  alt="twitter" /></a></li>
-                    <li><a href="https://plus.google.com/109030791898417339180/posts"  title="Add to the circle" class="poshytip"><img src="img/social/plus.png" alt="Google plus" /></a></li>
+                    <li><a href="http://www.facebook.com/pages/Ansimuz/224538697564461"  title="Become a fan" class="poshytip"><img src="{{asset('img/social/facebook.png')}}"  alt="Facebook" /></a></li>
+                    <li><a href="https://twitter.com/ansimuz" title="Follow my tweets" class="poshytip"><img src="{{asset('img/social/twitter.png')}}"  alt="twitter" /></a></li>
+                    <li><a href="https://plus.google.com/109030791898417339180/posts"  title="Add to the circle" class="poshytip"><img src="{{asset('img/social/plus.png')}}" alt="Google plus" /></a></li>
                 </ul>
             </div>
         </div>

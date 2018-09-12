@@ -15,7 +15,7 @@ class Post extends Model
     }
 
     // Mass assigned
-    protected $guarded = ['categories'];
+    protected $fillable = ['title' , 'slug' ,'description_short' ,'description' ,'image' ,'meta_title' , 'meta_description' ,'meta_keywords' ,'published' ,'viewed' ,'created_by','modified_by'];
 
 
     // Polymorphic relation with categories

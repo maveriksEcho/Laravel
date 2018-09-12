@@ -7,7 +7,7 @@
 <input type="text" class="form-control" name="slug" placeholder="Autogenerete post slug" value="{{$post->slug or ""}}" readonly="">
 
 <label for="">Category</label>
-<select class="form-control" name="categories[]" multiple="">
+<select class="form-control" name="categories[]" multiple="" required>
     @include('admin.posts.partials.categories', ['categories' => $categories])
 </select>
 

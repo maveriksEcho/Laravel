@@ -22,11 +22,19 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-       // dd(Post::search($request->search)->paginate(10));
+       if ($request->reset){
+           $request->search = null;
+           session()->forget('search');
+       }
 
-        if ($request->search)
+        if ($request->search || session()->has('search'))
         {
-                $posts = Post::search($request->search)->orderBy('created_at', 'desc')->paginate(10);
+            if ($request->search){
+                $request->session()->put('search', $request->search);
+            }
+            $search = $request->search ?? session()->get('search');
+
+            $posts = Post::search($search)->orderBy('created_at', 'desc')->paginate(10);
         }else
             {
                 $posts = Post::with('categories')->orderBy('created_at', 'desc')->paginate(10);

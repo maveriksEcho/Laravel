@@ -75,7 +75,13 @@ class HomeController extends Controller
 
     public function comment(Request $request)
     {
-        $comment = Comment::create($request->except('submit'));
+        $post = Post::findOrFail($request->post_id);
+        $post->comments()->create([
+            'content' => $request->content,
+            'parent_id' => $request->parent_id,
+            'created_by' => $request->created_by
+        ]);
+
         return redirect()->back();
     }
 }
